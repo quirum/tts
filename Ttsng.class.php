@@ -2,7 +2,7 @@
 // vim: set ai ts=4 sw=4 ft=php:
 namespace FreePBX\modules;
 
-class Tts extends \FreePBX_Helpers implements \BMO {
+class Ttsng extends \FreePBX_Helpers implements \BMO {
 
 	public function __construct($freepbx = null) {
 		$this->freepbx = $freepbx;

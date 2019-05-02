@@ -20,7 +20,7 @@ if ( $tts_agi = file_exists($astlib_path."/agi-bin/propolys-ttsng.agi") ) {
 
 // returns a associative arrays with keys 'destination' and 'description'
 function ttsng_destinations() {
-	$results = \FreePBX::Tts()->listTTS();
+	$results = \FreePBX::Ttsng()->listTTS();
 
 	// return an associative array with destination and description
 	if (isset($results) && $results){
@@ -58,7 +58,7 @@ function ttsng_get_config($p_var) {
 	switch($p_var) {
 		case "asterisk":
 			$contextname = 'ext-ttsng';
-			if ( is_array($tts_list = \FreePBX::Tts()->listTTS()) ) {
+			if ( is_array($tts_list = \FreePBX::Ttsng()->listTTS()) ) {
 				foreach($tts_list as $item) {
 					$tts = ttsng_get($item['id']);
 					$ttsid = $tts['id'];
@@ -88,7 +88,7 @@ function ttsng_get_ttsengine_path($engine) {
 
 function ttsng_list() {
 	dbug('tts_list has been moved in to BMO Tts->listTTS()');
-	return \FreePBX::Tts()->listTTS();
+	return \FreePBX::Ttsng()->listTTS();
 }
 
 function ttsng_get($p_id) {
@@ -109,7 +109,7 @@ function ttsng_del($p_id) {
 function ttsng_add($p_name, $p_text, $p_goto, $p_engine) {
 	global $db;
 
-	$tts_list = \FreePBX::Tts()->listTTS();
+	$tts_list = \FreePBX::Ttsng()->listTTS();
 	if (is_array($tts_list)) {
 		foreach ($tts_list as $tts) {
 			if ($tts['name'] === $p_name) {
