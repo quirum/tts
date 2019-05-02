@@ -12,9 +12,9 @@
 			?>
 			<div class="fpbx-container">
 				<div class="display full-border">
-					<form class="fpbx-submit popover-form" autocomplete="off" name="editTTS" action="?display=tts-ng" method="post"
-					<?php echo !empty($id) ? 'data-fpbx-delete="config.php?display=tts-ng&id='.$id.'&action=delete"' : ''; ?>>
-					<input type="hidden" name="display" value="tts-ng">
+					<form class="fpbx-submit popover-form" autocomplete="off" name="editTTS" action="?display=ttsng" method="post"
+					<?php echo !empty($id) ? 'data-fpbx-delete="config.php?display=ttsng&id='.$id.'&action=delete"' : ''; ?>>
+					<input type="hidden" name="display" value="ttsng">
 					<input type="hidden" name="action" value="<?php echo (!empty($id) ? 'edit' : 'add') ?>">
 					<?php if (!empty($id)) { ?>
 						<input type="hidden" name="id" value="<?php echo $id; ?>">

@@ -1,5 +1,5 @@
 <?php
-$table = \FreePBX::Database()->migrate("tts-ng");
+$table = \FreePBX::Database()->migrate("ttsng");
 $cols = array (
 	'id' => array (
 		'type' => 'integer',

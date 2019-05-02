@@ -1,7 +1,7 @@
 <div id="toolbar-grid">
-  <a href="?display=tts-ng&view=form" class="btn btn-default"><i class="fa fa-plus"></i>&nbsp;<?php echo _("Add TTS")?></a>
+  <a href="?display=ttsng&view=form" class="btn btn-default"><i class="fa fa-plus"></i>&nbsp;<?php echo _("Add TTS")?></a>
 </div>
-<table data-url="ajax.php?module=tts-ng&amp;command=getJSON&amp;jdata=grid" data-cache="false" data-toggle="table" data-search="true" data-toolbar="#toolbar-grid" class="table" id="table-grid">
+<table data-url="ajax.php?module=ttsng&amp;command=getJSON&amp;jdata=grid" data-cache="false" data-toggle="table" data-search="true" data-toolbar="#toolbar-grid" class="table" id="table-grid">
     <thead>
         <tr>
             <th data-sortable="true" data-field="name"><?php echo _('Name')?></th>
@@ -21,8 +21,8 @@
   }
   function actionFormatter(value,row){
   	var html = '';
-  	html += '<a href="?display=tts-ng&view=form&id='+value+'"><i class="fa fa-edit"></i></a>&nbsp;';
-  	html += '<a href="?display=tts-ng&action=delete&id='+value+'" class="delAction"><i class="fa fa-trash"></i></a>';
+  	html += '<a href="?display=ttsng&view=form&id='+value+'"><i class="fa fa-edit"></i></a>&nbsp;';
+  	html += '<a href="?display=ttsng&action=delete&id='+value+'" class="delAction"><i class="fa fa-trash"></i></a>';
   	return html;
   }
 </script>

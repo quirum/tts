@@ -9,10 +9,10 @@ if ( (isset($amp_conf['ASTVARLIBDIR'])?$amp_conf['ASTVARLIBDIR']:'') == '') {
 } else {
 	$astlib_path = $amp_conf['ASTVARLIBDIR'];
 }
-$tts_astsnd_path = $astlib_path."/sounds/tts-ng/";
+$tts_astsnd_path = $astlib_path."/sounds/ttsng/";
 
 
-if ( $tts_agi = file_exists($astlib_path."/agi-bin/propolys-tts-ng.agi") ) {
+if ( $tts_agi = file_exists($astlib_path."/agi-bin/propolys-ttsng.agi") ) {
 	//tts_findengines();
 } else {
 	$tts_agi_error = _("AGI script not found");
@@ -44,7 +44,7 @@ function tts_getdestinfo($dest) {
 					return array();
 				} else {
 						return array('description' => sprintf(_("Text to Speech - NextGen: %s"),$thistts['name']),
-							'edit_url' => 'config.php?display=tts-ng&view=form&id='.urlencode($tts),
+							'edit_url' => 'config.php?display=ttsng&view=form&id='.urlencode($tts),
 							);
 				}
 	} else {
@@ -57,7 +57,7 @@ function tts_get_config($p_var) {
 
 	switch($p_var) {
 		case "asterisk":
-			$contextname = 'ext-tts-ng';
+			$contextname = 'ext-ttsng';
 			if ( is_array($tts_list = \FreePBX::Tts()->listTTS()) ) {
 				foreach($tts_list as $item) {
 					$tts = tts_get($item['id']);
@@ -70,7 +70,7 @@ function tts_get_config($p_var) {
 					$ext->add($contextname, $ttsid, '', new ext_noop('TTS: '.$ttsname));
 					$ext->add($contextname, $ttsid, '', new ext_noop('Using: '.$ttsengine));
 					$ext->add($contextname, $ttsid, '', new ext_answer());
-					$ext->add($contextname, $ttsid, '', new ext_agi('propolys-tts-ng.agi,"'.$ttstext.'",'.$ttsengine.','.$ttspath['path']));
+					$ext->add($contextname, $ttsid, '', new ext_agi('propolys-ttsng.agi,"'.$ttstext.'",'.$ttsengine.','.$ttspath['path']));
 					$ext->add($contextname, $ttsid, '', new ext_goto($ttsgoto));
 				}
 			}

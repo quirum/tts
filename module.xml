@@ -1,5 +1,5 @@
 <module>
-	<rawname>tts-ng</rawname>
+	<rawname>ttsng</rawname>
 	<name>Text To Speech - NextGen</name>
 	<version>13.0.13</version>
 	<repo>extended</repo>
