@@ -43,22 +43,22 @@ class Ttsng extends \FreePBX_Helpers implements \BMO {
 
 		switch ($vars['action']) {
 			case "add":
-				$_REQUEST['id'] = \tts_add($vars['name'], $vars['text'], $goto, $vars['engine']);
+				$_REQUEST['id'] = \ttsng_add($vars['name'], $vars['text'], $goto, $vars['engine']);
 				\needreload();
 			break;
 			case "delete":
-				\tts_del($vars['id']);
+				\ttsng_del($vars['id']);
 				$_REQUEST['id'] = null;
 				\needreload();
 			break;
 			case "edit":
-				\tts_update($vars['id'], $vars['name'], $vars['text'], $goto, $_REQUEST['engine']);
+				\ttsng_update($vars['id'], $vars['name'], $vars['text'], $goto, $_REQUEST['engine']);
 				\needreload();
 			break;
 		}
 	}
 	public function listTTS(){
-		$sql = "SELECT * FROM tts ORDER BY name";
+		$sql = "SELECT * FROM ttsng ORDER BY name";
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute();
 		$res = $stmt->fetchall(\PDO::FETCH_ASSOC);
