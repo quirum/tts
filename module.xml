@@ -1,6 +1,6 @@
 <module>
-	<rawname>tts</rawname>
-	<name>Text To Speech</name>
+	<rawname>tts-ng</rawname>
+	<name>Text To Speech - NextGen</name>
 	<version>13.0.13</version>
 	<repo>extended</repo>
 	<publisher>Sangoma Technologies Corporation</publisher>
@@ -10,7 +10,7 @@
 	<description>Allows you to configure text to speech, and is derived from texttospeech provided in contributed modules.</description>
 	<category>Applications</category>
 	<menuitems>
-		<tts needsenginedb="yes">Text To Speech</tts>
+		<tts needsenginedb="yes">Text To Speech - NextGen</tts>
 	</menuitems>
 	<depends>
 		<engine>asterisk ge 1.6</engine>

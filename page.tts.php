@@ -27,10 +27,10 @@ if ( (isset($amp_conf['ASTVARLIBDIR'])?$amp_conf['ASTVARLIBDIR']:'') == '') {
 } else {
 	$astlib_path = $amp_conf['ASTVARLIBDIR'];
 }
-$data['tts_astsnd_path'] = $astlib_path . "/sounds/tts/";
+$data['tts_astsnd_path'] = $astlib_path . "/sounds/tts-ng/";
 
 $data['tts_agi_error'] = null;
-if (!($tts_agi = file_exists($astlib_path."/agi-bin/propolys-tts.agi"))) {
+if (!($tts_agi = file_exists($astlib_path."/agi-bin/propolys-tts-ng.agi"))) {
 	$data['tts_agi_error'] = _("AGI script not found");
 }
 if($_GET['view'] == 'form'){

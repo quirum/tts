@@ -59,7 +59,7 @@ switch(true) {
 	break;
 	default;
 		$format = array(
-			"ext" => "sln",
+			"ext" => "wav",
 			"rate" => "8000"
 		);
 	break;
@@ -75,7 +75,7 @@ if ( $retval != 0 ) {
 	return $retval;
 }
 
-$soundsdir = $config["ASTVARLIBDIR"]."/sounds/tts";
+$soundsdir = $config["ASTVARLIBDIR"]."/sounds/tts-ng";
 if( !is_dir($soundsdir) ) mkdir($soundsdir, 0775);
 
 $wavefile = $soundsdir."/$engine-tts-$hash.".$format['ext'];
@@ -110,7 +110,10 @@ if ( !file_exists($wavefile) ) {
 			exec($enginebin." -o $tmpwavefile ".escapeshellarg(file_get_contents($textfile)));
 			break;
 		case 'polly':
-			exec($enginebin." /opt/aws-nodejs/polly.js --mp3=/var/lib/asterisk/sounds/tts/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/tts/$engine-tts-temp-$hash");
+			exec($enginebin." /opt/aws-nodejs/polly.js --mp3=/var/lib/asterisk/sounds/tts-ng/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/tts-ng/$engine-tts-temp-$hash");
+			break;
+			case 'googletts':
+			exec($enginebin." /opt/nodejs-text-to-speech/samples/quirum_test.js --mp3=/var/lib/asterisk/sounds/tts-ng/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/tts-ng/$engine-tts-$hash");
 			break;
         default:
 			debug("$engine is not a valid engine!", 1);
@@ -126,7 +129,7 @@ if(file_exists($wavefile)) {
 	// Adding a wait because the first time the wave file is generated, it was not played
 	$AGI->wait_for_digit(1000);
 	debug("Streaming the generated wave.", 1);
-	$AGI->stream_file("tts/".basename($wavefile,".".$format['ext']),'#');
+	$AGI->stream_file("tts-ng/".basename($wavefile,".".$format['ext']),'#');
 } else {
 	debug("File was not created!", 1);
 }

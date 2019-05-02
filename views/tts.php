@@ -5,16 +5,16 @@
 				if (!empty($id)) {
 			?>
 					<h2>
-						<?php echo _("Text To Speech").": ". $name; ?>
+						<?php echo _("Text To Speech - NextGen").": ". $name; ?>
 					</h2>
 			<?php
 				}
 			?>
 			<div class="fpbx-container">
 				<div class="display full-border">
-					<form class="fpbx-submit popover-form" autocomplete="off" name="editTTS" action="?display=tts" method="post"
-					<?php echo !empty($id) ? 'data-fpbx-delete="config.php?display=tts&id='.$id.'&action=delete"' : ''; ?>>
-					<input type="hidden" name="display" value="tts">
+					<form class="fpbx-submit popover-form" autocomplete="off" name="editTTS" action="?display=tts-ng" method="post"
+					<?php echo !empty($id) ? 'data-fpbx-delete="config.php?display=tts-ng&id='.$id.'&action=delete"' : ''; ?>>
+					<input type="hidden" name="display" value="tts-ng">
 					<input type="hidden" name="action" value="<?php echo (!empty($id) ? 'edit' : 'add') ?>">
 					<?php if (!empty($id)) { ?>
 						<input type="hidden" name="id" value="<?php echo $id; ?>">
