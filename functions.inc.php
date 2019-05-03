@@ -94,14 +94,14 @@ function ttsng_list() {
 function ttsng_get($p_id) {
 	global $db;
 
-	$sql = "SELECT id, name, text, goto, engine FROM tts WHERE id=$p_id";
+	$sql = "SELECT id, name, text, goto, engine FROM ttsng WHERE id=$p_id";
 	$res = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 	return $res;
 }
 
 function ttsng_del($p_id) {
 	$dbh = \FreePBX::Database();
-	$sql = 'DELETE FROM tts WHERE id = ?';
+	$sql = 'DELETE FROM ttsng WHERE id = ?';
 	$stmt = $dbh->prepare($sql);
 	return $stmt->execute(array($p_id));
 }
@@ -118,13 +118,13 @@ function ttsng_add($p_name, $p_text, $p_goto, $p_engine) {
 			}
 		}
 	}
-	$results = sql("INSERT INTO tts SET name=".sql_formattext($p_name)." , text=".sql_formattext($p_text).", goto=".sql_formattext($p_goto).", engine=".sql_formattext($p_engine));
+	$results = sql("INSERT INTO ttsng SET name=".sql_formattext($p_name)." , text=".sql_formattext($p_text).", goto=".sql_formattext($p_goto).", engine=".sql_formattext($p_engine));
 
 	return $db->insert_id();
 }
 
 function ttsng_update($p_id, $p_name, $p_text, $p_goto, $p_engine) {
-	$results = sql("UPDATE tts SET name=".sql_formattext($p_name).", text=".sql_formattext($p_text).", goto=".sql_formattext($p_goto).", engine=".sql_formattext($p_engine)." WHERE id=".$p_id);
+	$results = sql("UPDATE ttsng SET name=".sql_formattext($p_name).", text=".sql_formattext($p_text).", goto=".sql_formattext($p_goto).", engine=".sql_formattext($p_engine)." WHERE id=".$p_id);
 }
 
 ?>
