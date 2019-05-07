@@ -25,7 +25,7 @@ function ttsng_destinations() {
 	// return an associative array with destination and description
 	if (isset($results) && $results){
 		foreach($results as $result){
-				$extens[] = array('destination' => 'ext-tts,'.$result['id'].',1', 'description' => $result['name']);
+				$extens[] = array('destination' => 'ext-ttsng,'.$result['id'].',1', 'description' => $result['name']);
 		}
 
 		return $extens;
@@ -36,7 +36,7 @@ function ttsng_destinations() {
 
 function ttsng_getdestinfo($dest) {
 	global $amp_conf;
-		if (substr(trim($dest),0,8) == 'ext-tts,') {
+		if (substr(trim($dest),0,8) == 'ext-ttsng,') {
 			$tts = explode(',',$dest);
 				$tts = $tts[1];
 				$thistts = ttsng_get($tts);
