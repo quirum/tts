@@ -12,6 +12,7 @@ require_once "phpagi-asmanager.php";
 
 $AGI = new AGI();
 debug("TTS AGI Started", 1);
+putenv("GOOGLE_APPLICATION_CREDENTIALS=/opt/nodejs-text-to-speech/samples/test.json"); 
 
 $text = $argv[1];
 $hash = md5($text);
@@ -112,8 +113,8 @@ if ( !file_exists($wavefile) ) {
 		case 'polly':
 			exec($enginebin." /opt/aws-nodejs/polly.js --mp3=/var/lib/asterisk/sounds/ttsng/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/ttsng/$engine-tts-temp-$hash");
 			break;
-			case 'googletts':
-			exec($enginebin." /opt/nodejs-text-to-speech/samples/quirum_test.js --mp3=/var/lib/asterisk/sounds/ttsng/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/ttsng/$engine-tts-$hash");
+		case 'googletts':
+			exec($enginebin." /opt/nodejs-text-to-speech/samples/quirum_test.js --mp3=/var/lib/asterisk/sounds/tts/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/tts/$engine-tts-$hash");
 			break;
         default:
 			debug("$engine is not a valid engine!", 1);
