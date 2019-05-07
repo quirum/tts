@@ -114,7 +114,7 @@ if ( !file_exists($wavefile) ) {
 			exec($enginebin." /opt/aws-nodejs/polly.js --mp3=/var/lib/asterisk/sounds/ttsng/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/ttsng/$engine-tts-temp-$hash");
 			break;
 		case 'googletts':
-			exec($enginebin." /opt/nodejs-text-to-speech/samples/quirum_test.js --mp3=/var/lib/asterisk/sounds/tts/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/tts/$engine-tts-$hash");
+			exec($enginebin." /opt/nodejs-text-to-speech/samples/quirum_test.js --mp3=/var/lib/asterisk/sounds/ttsng/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/ttsng/$engine-tts-$hash");
 			break;
         default:
 			debug("$engine is not a valid engine!", 1);

@@ -1,7 +1,7 @@
 <module>
 	<rawname>ttsng</rawname>
 	<name>Text To Speech - NextGen</name>
-	<version>13.0.18</version>
+	<version>13.0.20</version>
 	<repo>extended</repo>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
