@@ -1,7 +1,7 @@
 <module>
 	<rawname>ttsng</rawname>
 	<name>Text To Speech - NextGen</name>
-	<version>13.0.20</version>
+	<version>14.0.1</version>
 	<repo>extended</repo>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
@@ -19,6 +19,7 @@
 	</depends>
 	<location>release/2.11/tts-2.11.0.7.tgz</location>
 	<changelog>
+		*14.0.1* Quirum TTS NextGen
 		*13.0.13* Fixing FREEPBX-17867 
 		*13.0.12* Fixing FREEPBX-19522 Removing extra submit/reset button from main landing page 
 		*13.0.11* Add support for 'polly' (AWS Polly) engine 

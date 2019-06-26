@@ -1,0 +1,16 @@
+{
+    "name": "tts",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "dependencies": {
+      "@google-cloud/text-to-speech": "^1.0.0",
+      "optimist": "^0.6.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+      "test": "mocha"
+    },
+    "author": "",
+    "license": "ISC"
+  }

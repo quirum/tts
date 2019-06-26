@@ -11,8 +11,9 @@ require_once "phpagi.php";
 require_once "phpagi-asmanager.php";
 
 $AGI = new AGI();
+$script_dir = "/var/www/html/admin/modules/ttsng/assets";
 debug("TTS AGI Started", 1);
-putenv("GOOGLE_APPLICATION_CREDENTIALS=/opt/nodejs-text-to-speech/samples/test.json"); 
+putenv("GOOGLE_APPLICATION_CREDENTIALS=$script_dir/config.json"); 
 
 $text = $argv[1];
 $hash = md5($text);
@@ -60,7 +61,7 @@ switch(true) {
 	break;
 	default;
 		$format = array(
-			"ext" => "wav",
+			"ext" => "sln",
 			"rate" => "8000"
 		);
 	break;
@@ -80,7 +81,7 @@ $soundsdir = $config["ASTVARLIBDIR"]."/sounds/ttsng";
 if( !is_dir($soundsdir) ) mkdir($soundsdir, 0775);
 
 $wavefile = $soundsdir."/$engine-tts-$hash.".$format['ext'];
-$tmpwavefile = $soundsdir."/$engine-tts-temp-$hash.wav";
+$tmpwavefile = $soundsdir."/$engine-tts-$hash.wav";
 debug("Generated WAV file: $wavefile", 3);
 $textfile = $soundsdir."/$engine-tts-$hash.txt";
 debug("TXT file: $textfile", 3);
@@ -114,7 +115,7 @@ if ( !file_exists($wavefile) ) {
 			exec($enginebin." /opt/aws-nodejs/polly.js --mp3=/var/lib/asterisk/sounds/ttsng/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/ttsng/$engine-tts-temp-$hash");
 			break;
 		case 'googletts':
-			exec($enginebin." /opt/nodejs-text-to-speech/samples/quirum_test.js --mp3=/var/lib/asterisk/sounds/ttsng/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/ttsng/$engine-tts-$hash");
+			exec($enginebin." $script_dir/main.js --mp3=/var/lib/asterisk/sounds/ttsng/$engine-tts-$hash.mp3 --text='$text' --wav=/var/lib/asterisk/sounds/ttsng/$engine-tts-$hash");
 			break;
         default:
 			debug("$engine is not a valid engine!", 1);
